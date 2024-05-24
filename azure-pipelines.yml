@@ -4,15 +4,14 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'windows-latest'
 
 variables:
   buildConfiguration: 'Release'
   dotNetFramework: 'net6.0'
   dotNetVersion: '6.0.x'
-  targetRuntime: 'linux-x64'
-  azureSPNName: 'YOUR-SPN-NAME'
-  azureAppServiceName: 'YOUR-APP-SERVICE-NAME'
+  azureSPNName: 'TestApp'
+  azureAppServiceName: 'TestAppNet'
 
 # Build the app for .NET 6 framework
 steps:
@@ -40,7 +39,7 @@ steps:
 #Publish it to the Azure App Service
 - task: AzureWebApp@1
   inputs:
-    appType: webAppLinux
+    appType: webApp
     azureSubscription: $(azureSPNName) #this is the name of the SPN
     appName: $(azureAppServiceName) #App Service's unique name
     package: $(Build.ArtifactStagingDirectory)/**/*.zip
