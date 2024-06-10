@@ -3,7 +3,7 @@
 trigger:
 - master
 
-pool: pool
+pool: Azure Pipelines
 
 variables:
   buildConfiguration: 'Release'
