@@ -3,14 +3,13 @@
 trigger:
 - master
 
-pool: 
-    vmImage: 'windows-latest'
+pool: Azure Pipelines
 
 variables:
   buildConfiguration: 'Release'
   dotNetFramework: 'net6.0'
   dotNetVersion: '6.0.x'
-  targetRuntime: 'win-x32'
+  targetRuntime: 'linux-x64'
   azureSPNName: 'TestApp'
   azureAppServiceName: 'TestAppNet'
 
